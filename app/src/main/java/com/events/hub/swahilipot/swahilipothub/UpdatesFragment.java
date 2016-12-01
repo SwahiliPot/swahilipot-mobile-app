@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+
 import com.android.volley.Cache;
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -20,6 +21,7 @@ import com.events.hub.swahilipot.swahilipothub.adapter.FeedListAdapter;
 import com.events.hub.swahilipot.swahilipothub.app.AppController;
 import com.events.hub.swahilipot.swahilipothub.data.FeedItem;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,10 +31,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class UpdatesFragment extends Fragment {
+public class UpdatesFragment extends Fragment{
     private static final String TAG = MainActivity.class.getSimpleName();
     private ListView listView;
     private FeedListAdapter listAdapter;
@@ -43,11 +46,12 @@ public class UpdatesFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_updates,null);
+        View rootView = inflater.inflate(R.layout.fragment_updates,container,false);
         listView = (ListView) rootView.findViewById(R.id.list);
         swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swiperefresh);
         return rootView;
     }
+
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
@@ -144,6 +148,7 @@ public class UpdatesFragment extends Fragment {
         );
 
     }
+
 
     /**
      * Parsing json reponse and passing the data to feed view list adapter
