@@ -142,14 +142,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            //Set the fragment initially
-//            MainFragment fragment = new MainFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.commit();
-        }
+//        if (id == R.id.nav_camera) {
+//            //Set the fragment initially
+////            MainFragment fragment = new MainFragment();
+////            android.support.v4.app.FragmentTransaction fragmentTransaction =
+////                    getSupportFragmentManager().beginTransaction();
+////            fragmentTransaction.replace(R.id.fragment_container, fragment);
+////            fragmentTransaction.commit();
+//        }
 //        else if (id == R.id.nav_gallery) {
 //            //Set the Mombasa Events fragment
 //            EventsFragment fragment = new EventsFragment();
