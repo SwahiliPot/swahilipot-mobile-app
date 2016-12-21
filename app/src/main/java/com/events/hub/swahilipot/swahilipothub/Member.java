@@ -6,29 +6,28 @@ package com.events.hub.swahilipot.swahilipothub;
 
 import java.util.ArrayList;
 
-public class Movie {
-    private String title, thumbnailUrl;
-    private int year;
-    private double rating;
+public class Member {
+    private String title, thumbnailUrl,reg;
+    private int bounties;
     private ArrayList<String> genre;
 
-    public Movie() {
+    public Member() {
     }
 
-    public Movie(String name, String thumbnailUrl, int year, double rating,
-                 ArrayList<String> genre) {
+    public Member(String name, String thumbnailUrl, int bounties, String reg,
+                  ArrayList<String> genre) {
         this.title = name;
         this.thumbnailUrl = thumbnailUrl;
-        this.year = year;
-        this.rating = rating;
+        this.bounties = bounties;
+        this.reg = reg;
         this.genre = genre;
     }
 
-    public String getTitle() {
+    public String getName() {
         return title;
     }
 
-    public void setTitle(String name) {
+    public void setName(String name) {
         this.title = name;
     }
 
@@ -40,20 +39,20 @@ public class Movie {
         this.thumbnailUrl = thumbnailUrl;
     }
 
-    public int getYear() {
-        return year;
+    public int getBounties() {
+        return bounties;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setBounties(int bounties) {
+        this.bounties = bounties;
     }
 
-    public double getRating() {
-        return rating;
+    public String getReg() {
+        return reg;
     }
 
-    public void setRating(double rating) {
-        this.rating = rating;
+    public void setReg(String reg) {
+        this.reg = reg;
     }
 
     public ArrayList<String> getGenre() {

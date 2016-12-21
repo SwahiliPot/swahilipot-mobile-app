@@ -2,8 +2,6 @@ package com.events.hub.swahilipot.swahilipothub;
 
 
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -35,9 +33,9 @@ public class MembersFragment extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Movies json url
-    private static final String url = "http://api.androidhive.info/json/movies.json";
+    private static final String url = "http://members.swahilipothub.co.ke/watu.json";
     private ProgressDialog pDialog;
-    private List<Movie> movieList = new ArrayList<Movie>();
+    private List<Member> memberList = new ArrayList<Member>();
     private ListView listView;
     private CustomListAdapter adapter;
 
@@ -58,11 +56,11 @@ public class MembersFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        adapter = new CustomListAdapter(getActivity(), movieList);
+        adapter = new CustomListAdapter(getActivity(), memberList);
         listView.setAdapter(adapter);
         pDialog = new ProgressDialog(getActivity());
         // Showing progress dialog before making http request
-        pDialog.setMessage("Fetching Members...");
+        pDialog.setMessage("Fetching Member...");
         pDialog.show();
 
 
@@ -79,12 +77,11 @@ public class MembersFragment extends Fragment {
                             try {
 
                                 JSONObject obj = response.getJSONObject(i);
-                                Movie movie = new Movie();
-                                movie.setTitle(obj.getString("title"));
-                                movie.setThumbnailUrl(obj.getString("image"));
-                                movie.setRating(((Number) obj.get("rating"))
-                                        .doubleValue());
-                                movie.setYear(obj.getInt("releaseYear"));
+                                Member member = new Member();
+                                member.setName(obj.getString("title"));
+                                member.setThumbnailUrl(obj.getString("image"));
+                                member.setReg(obj.getString("registration"));
+                                member.setBounties(obj.getInt("bounties"));
 
                                 // Genre is json array
                                 JSONArray genreArry = obj.getJSONArray("genre");
@@ -92,10 +89,10 @@ public class MembersFragment extends Fragment {
                                 for (int j = 0; j < genreArry.length(); j++) {
                                     genre.add((String) genreArry.get(j));
                                 }
-                                movie.setGenre(genre);
+                                member.setGenre(genre);
 
-                                // adding movie to movies array
-                                movieList.add(movie);
+                                // adding member to movies array
+                                memberList.add(member);
 
                             } catch (JSONException e) {
                                 e.printStackTrace();

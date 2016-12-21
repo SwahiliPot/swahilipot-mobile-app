@@ -5,7 +5,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,7 +61,6 @@ public class StartupsFragment extends Fragment {
         listView = (ListView) rootView.findViewById(R.id.listview);
         // setting image resource from drawable
         imageView = (ImageView) rootView.findViewById(R.id.avatar);
-        //Glide.with(this).load(avatar).into(imageView);
         return rootView;
     }
 
@@ -70,9 +68,9 @@ public class StartupsFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         contactJsonList = new ArrayList<>();
-        new GetContacts().execute();
+        new GetStartups().execute();
     }
-    private class GetContacts extends AsyncTask<Void, Void, Void> {
+    private class GetStartups extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -112,7 +110,7 @@ public class StartupsFragment extends Fragment {
                         String c3 = founders.getString("c3");
                         String c4 = founders.getString("c4");
 
-                        // tmp hash map for single contact
+                        // tmp hash map for single Startup
                         HashMap<String, String> contact = new HashMap<>();
 
                         // adding each child node to HashMap key => value
@@ -123,8 +121,12 @@ public class StartupsFragment extends Fragment {
                         contact.put(KEY_WEBSITE, web);
                         contact.put(KEY_THUMB_URL, avatar);
 
-                        // adding contact to contact list
+                        // adding Startups to contact list
                         contactJsonList.add(contact);
+
+
+
+
                     }
                 } catch (final JSONException e) {
                     Log.e(TAG, "Json parsing error: " + e.getMessage());
@@ -167,10 +169,11 @@ public class StartupsFragment extends Fragment {
              * */
             ListAdapter adapter = new SimpleAdapter(
                     getActivity(), contactJsonList,
-                    R.layout.list_startups, new String[]{"name", "email",
-                    "c1","website","avatar"}, new int[]{R.id.name,
+                    R.layout.list_startups, new String[]{KEY_NAME, KEY_EMAIL,
+                    KEY_FOUNDER,KEY_WEBSITE,KEY_THUMB_URL}, new int[]{R.id.name,
                     R.id.email, R.id.founder, R.id.web, R.id.avatar});
 
+//            Glide.with(getActivity()).load(KEY_THUMB_URL).into(imageView);
             listView.setAdapter(adapter);
         }
 

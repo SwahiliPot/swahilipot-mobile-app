@@ -82,7 +82,7 @@ public class FeedListAdapter extends BaseAdapter {
 				System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
 		timestamp.setText(timeAgo);
 
-		// Chcek for empty status message
+		// Check for empty status message
 		if (!TextUtils.isEmpty(item.getStatus())) {
 			statusMsg.setText(item.getStatus());
 			statusMsg.setVisibility(View.VISIBLE);
