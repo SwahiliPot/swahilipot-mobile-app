@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.text.Html;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,8 +18,12 @@ import com.events.hub.swahilipot.swahilipothub.R;
 import com.events.hub.swahilipot.swahilipothub.app.AppController;
 import com.events.hub.swahilipot.swahilipothub.data.FeedItem;
 
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 
 public class FeedListAdapter extends BaseAdapter {
@@ -76,11 +79,14 @@ public class FeedListAdapter extends BaseAdapter {
 
 		name.setText(item.getName());
 
-		// Converting timestamp into x ago format
-		CharSequence timeAgo = DateUtils.getRelativeTimeSpanString(
-				Long.parseLong(item.getTimeStamp()),
-				System.currentTimeMillis(), DateUtils.SECOND_IN_MILLIS);
-		timestamp.setText(timeAgo);
+//        CharSequence timeAgo = DateUtils.getRelativeTimeSpanString(Long.parseLong(item.getTimeStamp()), System.currentTimeMillis(),
+//                DateUtils.MINUTE_IN_MILLIS)
+//                .toString();
+
+
+       long postedAt =Long.parseLong(item.getTimeStamp());
+        String timeAgo = getTimeAgo(postedAt);
+        timestamp.setText(timeAgo);
 
 		// Check for empty status message
 		if (!TextUtils.isEmpty(item.getStatus())) {
@@ -108,8 +114,8 @@ public class FeedListAdapter extends BaseAdapter {
 		profilePic.setImageUrl(item.getProfilePic(), imageLoader);
 
 		// Feed image
-		if (item.getImge() != null) {
-			feedImageView.setImageUrl(item.getImge(), imageLoader);
+		if (item.getImage() != null) {
+			feedImageView.setImageUrl(item.getImage(), imageLoader);
 			feedImageView.setVisibility(View.VISIBLE);
 			feedImageView
 					.setResponseObserver(new FeedImageView.ResponseObserver() {
@@ -127,5 +133,76 @@ public class FeedListAdapter extends BaseAdapter {
 
 		return convertView;
 	}
+
+    public static String getTimeAgo(long timestamp) {
+
+        Calendar cal = Calendar.getInstance();
+        TimeZone tz = cal.getTimeZone();//get your local time zone.
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy hh:mm a");
+        sdf.setTimeZone(tz);//set time zone.
+        String localTime = sdf.format(new Date(timestamp * 1000));
+        Date date = new Date();
+        try {
+            date = sdf.parse(localTime);//get local date
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        if(date == null) {
+            return null;
+        }
+
+        long time = date.getTime();
+
+        Date curDate = currentDate();
+        long now = curDate.getTime();
+        if (time > now || time <= 0) {
+            return null;
+        }
+
+        int timeDIM = getTimeDistanceInMinutes(time);
+
+        String timeAgo = null;
+
+        if (timeDIM == 0) {
+            timeAgo = "less than a minute";
+        } else if (timeDIM == 1) {
+            return "1 minute";
+        } else if (timeDIM >= 2 && timeDIM <= 44) {
+            timeAgo = timeDIM + " minutes";
+        } else if (timeDIM >= 45 && timeDIM <= 89) {
+            timeAgo = "about an hour";
+        } else if (timeDIM >= 90 && timeDIM <= 1439) {
+            timeAgo = "about " + (Math.round(timeDIM / 60)) + " hours";
+        } else if (timeDIM >= 1440 && timeDIM <= 2519) {
+            timeAgo = "1 day";
+        } else if (timeDIM >= 2520 && timeDIM <= 43199) {
+            timeAgo = (Math.round(timeDIM / 1440)) + " days";
+        } else if (timeDIM >= 43200 && timeDIM <= 86399) {
+            timeAgo = "about a month";
+        } else if (timeDIM >= 86400 && timeDIM <= 525599) {
+            timeAgo = (Math.round(timeDIM / 43200)) + " months";
+        } else if (timeDIM >= 525600 && timeDIM <= 655199) {
+            timeAgo = "about a year";
+        } else if (timeDIM >= 655200 && timeDIM <= 914399) {
+            timeAgo = "over a year";
+        } else if (timeDIM >= 914400 && timeDIM <= 1051199) {
+            timeAgo = "almost 2 years";
+        } else {
+            timeAgo = "about " + (Math.round(timeDIM / 525600)) + " years";
+        }
+
+        return timeAgo + " ago";
+    }
+
+    public static Date currentDate() {
+        Calendar calendar = Calendar.getInstance();
+        return calendar.getTime();
+    }
+
+    private static int getTimeDistanceInMinutes(long time) {
+        long timeDistance = currentDate().getTime() - time;
+        return Math.round((Math.abs(timeDistance) / 1000) / 60);
+    }
 
 }

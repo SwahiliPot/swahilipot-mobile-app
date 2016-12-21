@@ -2,7 +2,7 @@ package com.events.hub.swahilipot.swahilipothub.data;
 
 public class FeedItem {
 	private int id;
-	private String name, status, image, profilePic, timeStamp, url;
+	private String name, status, image, profilePic, url, timeStamp;
 
 	public FeedItem() {
 	}
@@ -35,11 +35,11 @@ public class FeedItem {
 		this.name = name;
 	}
 
-	public String getImge() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImge(String image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
 
