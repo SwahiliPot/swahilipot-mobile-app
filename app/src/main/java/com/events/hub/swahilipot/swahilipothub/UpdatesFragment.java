@@ -41,7 +41,7 @@ public class UpdatesFragment extends Fragment{
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private String URL_FEED = "http://members.swahilipothub.co.ke/json.php";
+    private String URL_FEED = "http://members.swahilipothub.co.ke/feeds/json.php";
 
     @Nullable
     @Override
