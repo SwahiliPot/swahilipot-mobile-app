@@ -79,7 +79,7 @@ public class MembersFragment extends Fragment {
                                 JSONObject obj = response.getJSONObject(i);
                                 Member member = new Member();
                                 member.setName(obj.getString("title"));
-                                member.setThumbnailUrl(obj.getString("image"));
+                                member.setAvatar(obj.getString("image"));
                                 member.setReg(obj.getString("registration"));
                                 member.setBounties(obj.getInt("bounties"));
 

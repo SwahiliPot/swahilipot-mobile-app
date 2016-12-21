@@ -56,25 +56,25 @@ public class CustomListAdapter extends BaseAdapter {
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
         NetworkImageView thumbNail = (NetworkImageView) convertView
-                .findViewById(R.id.thumbnail);
-        TextView title = (TextView) convertView.findViewById(R.id.title);
+                .findViewById(R.id.avatar);
+        TextView title = (TextView) convertView.findViewById(R.id.name);
         TextView reg = (TextView) convertView.findViewById(R.id.reg);
         TextView genre = (TextView) convertView.findViewById(R.id.genre);
-        TextView year = (TextView) convertView.findViewById(R.id.releaseYear);
+        TextView year = (TextView) convertView.findViewById(R.id.bounties);
 
-        // getting movie data for the row
+        // getting member data for the row
         Member m = memberItems.get(position);
 
-        // thumbnail image
-        thumbNail.setImageUrl(m.getThumbnailUrl(), imageLoader);
+        // Avatar
+        thumbNail.setImageUrl(m.getAvatar(), imageLoader);
 
         // title
         title.setText(m.getName());
 
-        // rating
+        // Registration
         reg.setText("Reg: " + String.valueOf(m.getReg()));
 
-        // genre
+        // Member Category
         String genreStr = "";
         for (String str : m.getGenre()) {
             genreStr += str + ", ";
@@ -83,7 +83,7 @@ public class CustomListAdapter extends BaseAdapter {
                 genreStr.length() - 2) : genreStr;
         genre.setText(genreStr);
 
-        // release year
+        // member bounties
         year.setText(String.valueOf(m.getBounties()));
 
         return convertView;

@@ -77,7 +77,7 @@ public class StartupsFragment extends Fragment {
             super.onPreExecute();
             // Showing progress dialog
             progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("Finding startups...");
+            progressDialog.setMessage("Loading startups...");
             progressDialog.setCancelable(false);
             progressDialog.show();
         }
@@ -169,9 +169,9 @@ public class StartupsFragment extends Fragment {
              * */
             ListAdapter adapter = new SimpleAdapter(
                     getActivity(), contactJsonList,
-                    R.layout.list_startups, new String[]{KEY_NAME, KEY_EMAIL,
-                    KEY_FOUNDER,KEY_WEBSITE,KEY_THUMB_URL}, new int[]{R.id.name,
-                    R.id.email, R.id.founder, R.id.web, R.id.avatar});
+                    R.layout.list_startups, new String[]{KEY_EMAIL,
+                    KEY_WEBSITE,KEY_THUMB_URL}, new int[]{
+                    R.id.email, R.id.web, R.id.avatar});
 
 //            Glide.with(getActivity()).load(KEY_THUMB_URL).into(imageView);
             listView.setAdapter(adapter);

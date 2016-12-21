@@ -28,9 +28,10 @@
         android:paddingTop="6dip"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
+        android:text="Digitart Technologies"
         android:textStyle="bold" />
     <TextView
-        android:id="@+id/founder"
+        android:id="@+id/web"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dip"
@@ -38,6 +39,7 @@
         android:layout_below="@id/name"
         android:textColor="@color/colorPrimaryText"
         android:textSize="14sp"
+        android:text="http://digitarttechnologies"
         android:textStyle="bold" />
 
     <TextView
@@ -46,16 +48,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/thumbnail"
-        android:layout_below="@id/founder"
+        android:layout_below="@id/web"
         android:paddingBottom="2dip"
+        android:text="info@digitarttechnologies"
         android:textColor="#999999" />
 
-    <TextView
-        android:id="@+id/web"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/thumbnail"
-        android:layout_below="@id/email"
-        android:textColor="#5d5d5d"
-        android:textStyle="bold" />
+    <!--<TextView-->
+        <!--android:id="@+id/web"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_toRightOf="@+id/thumbnail"-->
+        <!--android:layout_below="@id/email"-->
+        <!--android:textColor="#5d5d5d"-->
+        <!--android:textStyle="bold" />-->
 </RelativeLayout>

@@ -7,36 +7,36 @@ package com.events.hub.swahilipot.swahilipothub;
 import java.util.ArrayList;
 
 public class Member {
-    private String title, thumbnailUrl,reg;
+    private String name, avatar,reg;
     private int bounties;
     private ArrayList<String> genre;
 
     public Member() {
     }
 
-    public Member(String name, String thumbnailUrl, int bounties, String reg,
+    public Member(String name, String avatar, int bounties, String reg,
                   ArrayList<String> genre) {
-        this.title = name;
-        this.thumbnailUrl = thumbnailUrl;
+        this.name = name;
+        this.avatar = avatar;
         this.bounties = bounties;
         this.reg = reg;
         this.genre = genre;
     }
 
     public String getName() {
-        return title;
+        return name;
     }
 
     public void setName(String name) {
-        this.title = name;
+        this.name = name;
     }
 
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public int getBounties() {
