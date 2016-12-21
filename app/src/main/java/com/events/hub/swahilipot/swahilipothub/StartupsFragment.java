@@ -169,9 +169,9 @@ public class StartupsFragment extends Fragment {
              * */
             ListAdapter adapter = new SimpleAdapter(
                     getActivity(), contactJsonList,
-                    R.layout.list_startups, new String[]{KEY_EMAIL,
+                    R.layout.list_startups, new String[]{KEY_NAME,KEY_EMAIL,
                     KEY_WEBSITE,KEY_THUMB_URL}, new int[]{
-                    R.id.email, R.id.web, R.id.avatar});
+                    R.id.name,R.id.email, R.id.web, R.id.avatar});
 
 //            Glide.with(getActivity()).load(KEY_THUMB_URL).into(imageView);
             listView.setAdapter(adapter);
