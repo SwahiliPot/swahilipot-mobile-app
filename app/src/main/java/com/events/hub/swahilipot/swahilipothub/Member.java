@@ -5,20 +5,26 @@ package com.events.hub.swahilipot.swahilipothub;
  */
 
 public class Member {
-    private String name, avatar,reg;
+    private String name, avatar, reg, category, email, gender, status, createdAt, bio, web;
     private int bounties;
-    private String category;
 
     public Member() {
     }
 
     public Member(String name, String avatar, int bounties, String reg,
-                  String category) {
+                  String category, String email, String gender, String status,
+                  String createdAt, String bio, String web) {
         this.name = name;
         this.avatar = avatar;
         this.bounties = bounties;
         this.reg = reg;
         this.category = category;
+        this.email = email;
+        this.gender = gender;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.bio = bio;
+        this.web = web;
     }
 
     public String getName() {
@@ -59,6 +65,54 @@ public class Member {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getWeb() {
+        return web;
+    }
+
+    public void setWeb(String web) {
+        this.web = web;
     }
 
 }

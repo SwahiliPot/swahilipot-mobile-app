@@ -75,6 +75,17 @@ public class MembersFragment extends Fragment {
                 switch (position) {
                     case 0:
                         Intent detailActivity = new Intent(getActivity(), MemberDetailsActivity.class);
+                        Bundle extras = new Bundle();
+                        Member member = new Member();
+                        extras.putString("EXTRA_NAME",member.getName());
+                        extras.putString("EXTRA_EMAIL",member.getEmail());
+                        extras.putString("EXTRA_GENDER",member.getGender());
+                        extras.putString("EXTRA_AVATAR",member.getAvatar());
+                        extras.putString("EXTRA_WEB",member.getWeb());
+                        extras.putString("EXTRA_BIO",member.getBio());
+                        extras.putString("EXTRA_CAT",member.getCategory());
+                        extras.putString("EXTRA_REG",member.getReg());
+                        detailActivity.putExtras(extras);
                         startActivity(detailActivity);
                         break;
 
@@ -100,6 +111,12 @@ public class MembersFragment extends Fragment {
                                 member.setAvatar(obj.getString("profilePic"));
                                 member.setReg(obj.getString("regno"));
                                 member.setBounties(obj.getInt("bounties"));
+                                member.setEmail(obj.getString("email"));
+                                member.setGender(obj.getString("gender"));
+                                member.setStatus(obj.getString("status"));
+                                member.setBio(obj.getString("bio"));
+                                member.setCreatedAt(obj.getString("created"));
+                                member.setWeb(obj.getString("website"));
 
                                 // Genre is json array
 //                                JSONArray genreArry = obj.getJSONArray("genre");
@@ -112,7 +129,7 @@ public class MembersFragment extends Fragment {
 
                                 //member.setCategory("category");
 
-                                // adding member to movies array
+                                // adding member to members array
                                 memberList.add(member);
 
                             } catch (JSONException e) {
