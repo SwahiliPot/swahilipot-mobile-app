@@ -67,32 +67,6 @@ public class MembersFragment extends Fragment {
         pDialog.setMessage("Fetching Member...");
         pDialog.show();
 
-        //Opens activity
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                switch (position) {
-                    case 0:
-                        Intent detailActivity = new Intent(getActivity(), MemberDetailsActivity.class);
-                        Bundle extras = new Bundle();
-                        Member member = new Member();
-                        extras.putString("EXTRA_NAME",member.getName());
-                        extras.putString("EXTRA_EMAIL",member.getEmail());
-                        extras.putString("EXTRA_GENDER",member.getGender());
-                        extras.putString("EXTRA_AVATAR",member.getAvatar());
-                        extras.putString("EXTRA_WEB",member.getWeb());
-                        extras.putString("EXTRA_BIO",member.getBio());
-                        extras.putString("EXTRA_CAT",member.getCategory());
-                        extras.putString("EXTRA_REG",member.getReg());
-                        detailActivity.putExtras(extras);
-                        startActivity(detailActivity);
-                        break;
-
-                }
-            }
-        });
-
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {
@@ -153,6 +127,21 @@ public class MembersFragment extends Fragment {
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(movieReq);
+
+        //Opens Members detail activity
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                String name = ((TextView) view.findViewById(R.id.name))
+                        .getText().toString();
+
+                Intent intent = new Intent(getActivity(), MemberDetailsActivity.class);
+                intent.putExtra("EXTRA_NAME", name);
+                startActivity(intent);
+            }
+        });
     }
     @Override
     public void onDestroy() {

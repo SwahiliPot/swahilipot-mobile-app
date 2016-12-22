@@ -24,13 +24,24 @@ public class MemberDetailsActivity extends AppCompatActivity {
         CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
 
+        //Init transfered data
         Bundle extras = getIntent().getExtras();
+
+        //Display only if not null
+        if(extras != null)
+
         collapsingToolbar.setTitle(extras.getString("EXTRA_NAME"));
         loadBackdrop();
+
+        //Bio section
         TextView bio = (TextView) findViewById(R.id.bio);
         bio.setText(extras.getString("EXTRA_BIO"));
+
+        //Category section
         TextView category = (TextView) findViewById(R.id.category);
         category.setText(extras.getString("EXTRA_CAT"));
+
+        //Registration Section
         TextView reg = (TextView) findViewById(R.id.reg);
         reg.setText(extras.getString("EXTRA_REG"));
 
