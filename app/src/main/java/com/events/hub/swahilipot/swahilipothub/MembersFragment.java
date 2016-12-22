@@ -2,6 +2,7 @@ package com.events.hub.swahilipot.swahilipothub;
 
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -65,6 +67,20 @@ public class MembersFragment extends Fragment {
         pDialog.setMessage("Fetching Member...");
         pDialog.show();
 
+        //Opens activity
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                switch (position) {
+                    case 0:
+                        Intent detailActivity = new Intent(getActivity(), MemberDetailsActivity.class);
+                        startActivity(detailActivity);
+                        break;
+
+                }
+            }
+        });
 
         // Creating volley request obj
         JsonArrayRequest movieReq = new JsonArrayRequest(url,
