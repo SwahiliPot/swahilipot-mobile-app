@@ -45,9 +45,27 @@ public class MemberDetailsActivity extends AppCompatActivity {
         TextView reg = (TextView) findViewById(R.id.reg);
         reg.setText(extras.getString("EXTRA_REG"));
 
+        //Creation Section
+        TextView created = (TextView) findViewById(R.id.created);
+        created.setText(extras.getString("EXTRA_CREATED"));
+
+        //Email Section
+        TextView email = (TextView) findViewById(R.id.email);
+        email.setText(extras.getString("EXTRA_EMAIL"));
+
+        //Gender Section
+        TextView gender = (TextView) findViewById(R.id.gender);
+        gender.setText(extras.getString("EXTRA_GENDER"));
+
+        //Bounties Section
+        TextView bounties = (TextView) findViewById(R.id.bounty);
+        bounties.setText(extras.getString("EXTRA_BOUNTY"));
+
     }
 
+
     private void loadBackdrop() {
+        //Load backdrop as clicked image
         Bundle extras = getIntent().getExtras();
         final ImageView imageView = (ImageView) findViewById(R.id.backdrop);
         Glide.with(this).load(extras.getString("EXTRA_AVATAR")).centerCrop().into(imageView);

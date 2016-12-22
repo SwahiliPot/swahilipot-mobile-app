@@ -134,11 +134,40 @@ public class MembersFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                String name = ((TextView) view.findViewById(R.id.name))
-                        .getText().toString();
+                //Name
+                String name  = (memberList.get(position)).getName();
+                //Bio
+                String bio = (memberList.get(position)).getBio();
+                //Avatar
+                String avatar = memberList.get(position).getAvatar();
+                //Category
+                String category = memberList.get(position).getCategory();
+                //Email
+                String email = memberList.get(position).getEmail();
+                //Gender
+                String gender = memberList.get(position).getGender();
+                //Website
+                String web = memberList.get(position).getWeb();
+                //Registration
+                String reg = memberList.get(position).getReg();
+                //Creation date
+                String created = memberList.get(position).getCreatedAt();
+//                //Bounty points
+//                int bounties = memberList.get(position).getBounties();
 
+
+                //Soft transfer
                 Intent intent = new Intent(getActivity(), MemberDetailsActivity.class);
                 intent.putExtra("EXTRA_NAME", name);
+                intent.putExtra("EXTRA_EMAIL", email);
+                intent.putExtra("EXTRA_BIO", bio);
+                intent.putExtra("EXTRA_AVATAR", avatar);
+                intent.putExtra("EXTRA_CAT", category);
+                intent.putExtra("EXTRA_GENDER",gender);
+                intent.putExtra("EXTRA_WEB",web);
+                intent.putExtra("EXTRA_REG",reg);
+                intent.putExtra("EXTRA_CREATED",created);
+               // intent.putExtra("EXTRA_BOUNTY",bounties);
                 startActivity(intent);
             }
         });

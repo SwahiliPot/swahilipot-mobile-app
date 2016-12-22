@@ -55,7 +55,7 @@ public class CustomListAdapter extends BaseAdapter {
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
-        NetworkImageView thumbNail = (NetworkImageView) convertView
+        NetworkImageView avatar = (NetworkImageView) convertView
                 .findViewById(R.id.avatar);
         TextView title = (TextView) convertView.findViewById(R.id.name);
         TextView reg = (TextView) convertView.findViewById(R.id.reg);
@@ -66,7 +66,7 @@ public class CustomListAdapter extends BaseAdapter {
         Member m = memberItems.get(position);
 
         // Avatar
-        thumbNail.setImageUrl(m.getAvatar(), imageLoader);
+        avatar.setImageUrl(m.getAvatar(), imageLoader);
 
         // Person Name
         title.setText(m.getName());
