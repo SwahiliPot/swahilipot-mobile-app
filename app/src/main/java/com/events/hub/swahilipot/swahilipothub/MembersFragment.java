@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -33,7 +34,7 @@ public class MembersFragment extends Fragment {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     // Movies json url
-    private static final String url = "http://members.swahilipothub.co.ke/watu.json";
+    private static final String url = "http://members.swahilipothub.co.ke/watu.php";
     private ProgressDialog pDialog;
     private List<Member> memberList = new ArrayList<Member>();
     private ListView listView;
@@ -49,6 +50,7 @@ public class MembersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_members,null);
+        TextView bt = (TextView) rootView.findViewById(R.id.bounties_text);
         listView = (ListView) rootView.findViewById(R.id.list);
         return rootView;
     }
@@ -78,18 +80,21 @@ public class MembersFragment extends Fragment {
 
                                 JSONObject obj = response.getJSONObject(i);
                                 Member member = new Member();
-                                member.setName(obj.getString("title"));
-                                member.setAvatar(obj.getString("image"));
-                                member.setReg(obj.getString("registration"));
+                                member.setName(obj.getString("name"));
+                                member.setAvatar(obj.getString("profilePic"));
+                                member.setReg(obj.getString("regno"));
                                 member.setBounties(obj.getInt("bounties"));
 
                                 // Genre is json array
-                                JSONArray genreArry = obj.getJSONArray("genre");
-                                ArrayList<String> genre = new ArrayList<String>();
-                                for (int j = 0; j < genreArry.length(); j++) {
-                                    genre.add((String) genreArry.get(j));
-                                }
-                                member.setGenre(genre);
+//                                JSONArray genreArry = obj.getJSONArray("genre");
+//                                ArrayList<String> genre = new ArrayList<String>();
+//                                for (int j = 0; j < genreArry.length(); j++) {
+//                                    genre.add((String) genreArry.get(j));
+//                                }
+
+                                member.setCategory(obj.getString("category"));
+
+                                //member.setCategory("category");
 
                                 // adding member to movies array
                                 memberList.add(member);

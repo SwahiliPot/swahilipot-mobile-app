@@ -23,6 +23,6 @@
     <dimen name="feed_item_border_width">1dp</dimen>
     <dimen name="title">17dp</dimen>
     <dimen name="reg">15dip</dimen>
-    <dimen name="genre">13dip</dimen>
+    <dimen name="category">13dip</dimen>
     <dimen name="bounties">12dip</dimen>
 </resources>

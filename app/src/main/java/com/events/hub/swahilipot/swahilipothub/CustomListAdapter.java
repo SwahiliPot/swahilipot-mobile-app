@@ -59,7 +59,7 @@ public class CustomListAdapter extends BaseAdapter {
                 .findViewById(R.id.avatar);
         TextView title = (TextView) convertView.findViewById(R.id.name);
         TextView reg = (TextView) convertView.findViewById(R.id.reg);
-        TextView genre = (TextView) convertView.findViewById(R.id.genre);
+        TextView genre = (TextView) convertView.findViewById(R.id.category);
         TextView year = (TextView) convertView.findViewById(R.id.bounties);
 
         // getting member data for the row
@@ -75,13 +75,13 @@ public class CustomListAdapter extends BaseAdapter {
         reg.setText("Reg: " + String.valueOf(m.getReg()));
 
         // Member Category
-        String genreStr = "";
-        for (String str : m.getGenre()) {
-            genreStr += str + ", ";
-        }
-        genreStr = genreStr.length() > 0 ? genreStr.substring(0,
-                genreStr.length() - 2) : genreStr;
-        genre.setText(genreStr);
+//        String genreStr = "";
+//        for (String str : m.getCategory()) {
+//            genreStr += str + ", ";
+//        }
+//        genreStr = genreStr.length() > 0 ? genreStr.substring(0,
+//                genreStr.length() - 2) : genreStr;
+        genre.setText(m.getCategory());
 
         // member bounties
         year.setText(String.valueOf(m.getBounties()));

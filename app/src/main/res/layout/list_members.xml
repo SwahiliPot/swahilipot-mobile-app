@@ -25,7 +25,7 @@
         android:textStyle="bold"
         android:text="Kevin Barasa"/>
 
-    <!-- Rating -->
+    <!-- Registration NO-->
     <TextView
         android:id="@+id/reg"
         android:layout_width="fill_parent"
@@ -34,21 +34,35 @@
         android:layout_marginTop="1dip"
         android:layout_toRightOf="@+id/avatar"
         android:textSize="@dimen/reg"
-        android:text="Techie"/>
+        android:text="SPTH/DEC/2016" />
 
-    <!-- Genre -->
+    <!-- Category of Member -->
     <TextView
-        android:id="@+id/genre"
+        android:id="@+id/category"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/reg"
+        android:layout_toRightOf="@+id/avatar"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:text="Techie"/>
+    <!-- Category of Member -->
+
+
+    <TextView
+        android:id="@+id/bounties_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/avatar"
-        android:textColor="@color/genre"
-        android:textSize="@dimen/genre"
-        android:text="SPTH/DEC/2016"/>
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/bounties"
+        android:textSize="12dp"
+        android:textStyle="bold"
+        android:text="Bounty Points:"/>
 
-    <!-- Release Year -->
+    <!-- Bounties -->
     <TextView
         android:id="@+id/bounties"
         android:layout_width="wrap_content"
@@ -57,6 +71,7 @@
         android:layout_alignParentRight="true"
         android:textColor="@color/bounties"
         android:textSize="@dimen/bounties"
+        android:textStyle="bold"
         android:text="50000"/>
 
 </RelativeLayout>
