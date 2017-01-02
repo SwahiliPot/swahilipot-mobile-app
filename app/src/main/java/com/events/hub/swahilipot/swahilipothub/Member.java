@@ -8,6 +8,7 @@ public class Member {
     private String name, avatar, reg, category, email, gender, status, createdAt, bio, web;
     private int bounties;
 
+    //Member constructor
     public Member() {
     }
 
