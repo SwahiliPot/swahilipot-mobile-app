@@ -52,7 +52,7 @@ public class MembersFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView =  inflater.inflate(R.layout.fragment_members,null);
-        TextView bt = (TextView) rootView.findViewById(R.id.bounties_text);
+        //TextView bt = (TextView) rootView.findViewById(R.id.bounties_text);
         listView = (ListView) rootView.findViewById(R.id.list);
         return rootView;
     }

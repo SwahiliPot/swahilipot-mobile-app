@@ -51,7 +51,7 @@ public class CustomListAdapter extends BaseAdapter {
             inflater = (LayoutInflater) activity
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         if (convertView == null)
-            convertView = inflater.inflate(R.layout.list_members, null);
+            convertView = inflater.inflate(R.layout.member_item, null);
 
         if (imageLoader == null)
             imageLoader = AppController.getInstance().getImageLoader();
@@ -60,7 +60,6 @@ public class CustomListAdapter extends BaseAdapter {
         TextView title = (TextView) convertView.findViewById(R.id.name);
         TextView reg = (TextView) convertView.findViewById(R.id.reg);
         TextView category = (TextView) convertView.findViewById(R.id.category);
-        TextView bounties = (TextView) convertView.findViewById(R.id.bounties);
 
         // getting member data for the row
         Member m = memberItems.get(position);
@@ -78,7 +77,7 @@ public class CustomListAdapter extends BaseAdapter {
         category.setText(m.getCategory());
 
         // member bounties
-        bounties.setText(String.valueOf(m.getBounties()));
+       // bounties.setText(String.valueOf(m.getBounties()));
 
         return convertView;
     }

@@ -73,6 +73,7 @@ public class MainActivity extends AppCompatActivity
         adapter.addFragment(new UpdatesFragment(), "Updates");
         adapter.addFragment(new MembersFragment(), "Members");
         adapter.addFragment(new StartupsFragment(), "Start-ups");
+        adapter.addFragment(new TechArtFragment(), "Tech-Art Magazine");
         viewPager.setAdapter(adapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -142,59 +143,24 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//            //Set the fragment initially
-////            MainFragment fragment = new MainFragment();
-////            android.support.v4.app.FragmentTransaction fragmentTransaction =
-////                    getSupportFragmentManager().beginTransaction();
-////            fragmentTransaction.replace(R.id.fragment_container, fragment);
-////            fragmentTransaction.commit();
-//        }
-//        else if (id == R.id.nav_gallery) {
-//            //Set the Mombasa Events fragment
-//            EventsFragment fragment = new EventsFragment();
+        if (id == R.id.nav_update) {
+            //Set the fragment initially
+//            MainFragment fragment = new MainFragment();
 //            android.support.v4.app.FragmentTransaction fragmentTransaction =
 //                    getSupportFragmentManager().beginTransaction();
 //            fragmentTransaction.replace(R.id.fragment_container, fragment);
 //            fragmentTransaction.commit();
-//
-//        }
-//        else if (id == R.id.nav_slideshow) {
-//            //Set the Mombasa innovations fragment
-//            InnovationsFragment fragment = new InnovationsFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.commit();
-//
-//        }
-//        else if (id == R.id.nav_manage) {
-//            //Set the  swahilipot updates fragment
-//            UpdatesFragment fragment = new UpdatesFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.commit();
-//
-//        }
-//        else if (id == R.id.nav_share) {
-//            //Set the security fragment
-//            SecurityFragment fragment = new SecurityFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.commit();
-//
-//        }
-//        else if (id == R.id.nav_send) {
-//            //Set the traffic fragment
-//            TrafficFragment fragment = new TrafficFragment();
-//            android.support.v4.app.FragmentTransaction fragmentTransaction =
-//                    getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment_container, fragment);
-//            fragmentTransaction.commit();
-//
-//        }
+        }
+
+        else if (id == R.id.nav_about) {
+
+        }
+        else if (id == R.id.nav_feedback) {
+
+        }
+        else if (id == R.id.nav_share) {
+
+        }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

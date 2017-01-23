@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_marginRight="8dp"
-        android:background="@drawable/background"/>
+        android:background="@drawable/ic_launcher"/>
 
     <!-- Member Title -->
     <TextView
@@ -48,32 +48,5 @@
         android:textSize="15dp"
         android:text="Techie"/>
     <!-- Category of Member -->
-
-
-    <TextView
-        android:id="@+id/bounties_text"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/avatar"
-        android:layout_alignParentBottom="true"
-        android:textColor="@color/bounties"
-        android:textSize="12dp"
-        android:textStyle="bold"
-        android:textAlignment="center"
-        android:text="Bounties:"/>
-
-    <!-- Bounties -->
-    <TextView
-        android:id="@+id/bounties"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:textColor="@color/bounties"
-        android:textSize="@dimen/bounties"
-        android:textStyle="bold"
-        android:text="50000"/>
 
 </RelativeLayout>
